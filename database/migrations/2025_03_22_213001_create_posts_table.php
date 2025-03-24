@@ -14,6 +14,12 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+            $table->string('title');
+            $table->text('content');
+            $table->json('attributes')->nullable();
+            $table->string('poster');
+            $table->date('date');
+            $table->string('poster_alt');
         });
     }
 
