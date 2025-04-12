@@ -18,10 +18,13 @@ class PostFactory extends Factory
     {
         return [
             'title' => fake()->sentence(),
-            'content' => fake()->paragraph(),
+            'content' => fake()->paragraphs(random_int(2, 7), true),
+            'introduction' => fake()->paragraph(),
             'poster' => "https://picsum.photos/234/416",
             'poster_alt' => fake()->sentence(),
             'date' => fake()->date(),
+            'uuid' => fake()->uuid(),
+            'published' => fake()->boolean(),
         ];
     }
 }

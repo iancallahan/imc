@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import '../../vendor/livewire/flux/dist/flux.css';
+@plugin '@tailwindcss/typography';
 
 @source '../views';
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
@@ -11,7 +12,9 @@
 
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-
+    --font-display: "cc-thismanthismonster-var", sans-serif;
+    --font-corn: "cornpile-variable", sans-serif;
+    --font-display--font-variation-settings: "BITE" 3, "WONK" 0, "CHEW" 5;
     --color-zinc-50: #fafafa;
     --color-zinc-100: #f5f5f5;
     --color-zinc-200: #e5e5e5;
@@ -24,6 +27,9 @@
     --color-zinc-900: #171717;
     --color-zinc-950: #0a0a0a;
 
+    --crt: 50% / 10%;
+    --trc: 10% / 50%;
+
     --color-accent: var(--color-neutral-800);
     --color-accent-content: var(--color-neutral-800);
     --color-accent-foreground: var(--color-white);
@@ -32,7 +38,7 @@
 
 
     --animate-scanline: scanline 6s infinite;
-    --animate-scanlines: scanlines 1s steps(60)infinite;
+    --animate-scanlines: scanlines 1s steps(60) infinite;
 
     @keyframes scanline {
         0% {
@@ -44,6 +50,66 @@
             background-position: 0 50%;
         }
     }
+
+    @keyframes monster {
+        0% {
+            font-variation-settings: "BITE" 5, "WONK" 0, "CHEW" 0;
+        }
+        50% {
+            font-variation-settings: "BITE" 0, "WONK" 10, "CHEW" 5;
+        }
+        100% {
+            font-variation-settings: "BITE" 5, "WONK" 0, "CHEW" 0;
+        }
+    }
+
+    @keyframes corn {
+        0% {
+            font-variation-settings: "ital" 15, "wght" 400;
+        }
+        50% {
+            font-variation-settings: "ital" 1, "wght" 800;
+        }
+        100% {
+            font-variation-settings: "ital" 15, "wght" 400;
+        }
+    }
+
+    @keyframes crush {
+        0% {
+            font-variation-settings: "ital" 12, "wght" 100, "wdth" 100;
+        }
+        50% {
+            font-variation-settings: "ital" 0, "wght" 850, "wdth" 100;
+        }
+        100% {
+            font-variation-settings: "ital" 12, "wght" 100, "wdth" 100;
+        }
+    }
+
+    @keyframes gia {
+        0% {
+            font-variation-settings: "wght" 200;
+        }
+        50% {
+            font-variation-settings: "wght" 900;
+        }
+        100% {
+            font-variation-settings: "wght" 200;
+        }
+    }
+
+    @keyframes slant {
+        0% {
+            font-variation-settings: "slnt" -20;
+        }
+        50% {
+            font-variation-settings: "slnt" 20;
+        }
+        100% {
+            font-variation-settings: "slnt" -20;
+        }
+    }
 }
 
 @layer theme {
@@ -53,12 +119,11 @@
         --color-accent-foreground: var(--color-neutral-800);
     }
 
-
     .scanlines {
         overflow: hidden;
         position: relative;
     }
-    
+
     .scanlines:before,
     .scanlines:after {
         display: block;
@@ -88,6 +153,34 @@
         );
         background-size: 100% 4px;
         animation: scanlines 1s steps(60) infinite;
+    }
+
+    .monster {
+        animation: monster 5s infinite;
+    }
+
+    .corn {
+        font-family: var(--font-corn);
+        font-variation-settings: "ital" 15, "wght" 400;
+        animation: corn 5s infinite;
+    }
+
+    .gia {
+        font-family: "gia-variable", sans-serif;
+        font-variation-settings: "wght" 200;
+        animation: gia 10s infinite;
+    }
+
+    .crush {
+        font-family: "bitcrusher-variable", sans-serif;
+        font-variation-settings: "ital" 0, "wght" 400, "wdth" 100;
+        animation: crush 10s infinite;
+    }
+
+    .slant {
+        font-family: "inge-variable", sans-serif;
+        font-variation-settings: "slnt" -20;
+        animation: slant 10s infinite;
     }
 }
 

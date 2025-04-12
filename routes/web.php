@@ -5,6 +5,8 @@ use Livewire\Volt\Volt;
 
 
 Volt::route('/', 'pages.home')->name('home');
+Volt::route('/post/{uuid}', 'pages.post')->name('post');
+
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

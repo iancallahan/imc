@@ -15,11 +15,14 @@ return new class extends Migration
             $table->id();
             $table->timestamps();
             $table->string('title');
+            $table->text('introduction');
             $table->text('content');
             $table->json('attributes')->nullable();
             $table->string('poster');
             $table->date('date');
             $table->string('poster_alt');
+            $table->string('uuid');
+            $table->boolean('published')->default(false);
         });
     }
 

@@ -25,13 +25,22 @@ class PostResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('title')
                     ->required(),
+                Forms\Components\MarkdownEditor::make('introduction')
+                    ->required()
+                    ->columnSpanFull(),
                 Forms\Components\MarkdownEditor::make('content')
                     ->required()
                     ->columnSpanFull(),
-                Forms\Components\Textarea::make('attributes')
+                Forms\Components\Toggle::make('published')
+                    ->default(false),
+                Forms\Components\FileUpload::make('poster')
+                    ->disk('s3')
+                    ->directory('posters')
+                    ->visibility('public')
                     ->required()
-                    ->columnSpanFull(),
-                Forms\Components\FileUpload::make('poster')->required()->image(),
+                    ->image()
+                    ->imageResizeMode('cover')
+                    ->imageCropAspectRatio('9:16'),
                 Forms\Components\TextInput::make('poster_alt')
                 ->required(),
                 Forms\Components\DatePicker::make('date')
