@@ -41,7 +41,7 @@ class extends Component {
 }; ?>
 
 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:h-screen md:overflow-hidden bg-black">
-    <section class="text-white px-6 pb-6 md:sticky md:top-0 md:h-screen overflow-y-scroll md:overflow-y-hidden flex items-center">
+    <section class="text-white px-2 md:px-6 pb-6 md:sticky md:top-0 md:h-screen overflow-y-scroll md:overflow-y-hidden flex items-center">
         <div id="profile" class="w-full">
         <figure class="flex flex-col items-center scanlines">
             <div class="relative">
